@@ -7,13 +7,19 @@ const MoleContainer = (props) => {
   let [theMole, setTheMole] = useState(false)
 
   const handleClick = (e) => {
-    props.setScore(props.score + 1)
-    setTheMole(false)
+    props.setScore(props.score + 1);
+    setTheMole(false);
   }
-  let displayMole = theMole ? <Mole setScore={props.setScore} toggle={setTheMole} handleClick={handleClick} /> : <EmptySlot />
+
   return (
     <div>
-        {displayMole}
+      {theMole ? (
+        <Mole
+        setScore={props.setScore}
+        toggle={setTheMole}
+        handleClick={handleClick} 
+        />
+      ) : (<EmptySlot toggle={setTheMole}/>)}
     </div>
   )
 }

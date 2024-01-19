@@ -9,7 +9,7 @@ function Mole(props) {
       props.toggle(false)
     }, randSeconds)
     return () => clearTimeout(timer)
-  })
+  }, [props.toggle])
   return (
     <div>
       <img style={{'width': '30vw'}} src={moleImg} onClick={props.handleClick} alt={"mole-img"}/>
